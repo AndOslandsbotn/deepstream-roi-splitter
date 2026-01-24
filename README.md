@@ -11,7 +11,7 @@ docker-compose run deepstream
 ### Using VS code
 In VS code go to ctrl + shift + P, then select Dev Containers: Open Folder in Container
 
-# Git access inside the DeepStream dev container (SSH agent)
+## Git access inside the DeepStream dev container (SSH agent)
 
 This project uses a Docker dev container for DeepStream.
 When working inside the container (e.g. via VSCode Dev Containers), git push may fail with:
