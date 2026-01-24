@@ -3,13 +3,15 @@ Splits video streams into multiple substreams from different regions of interest
 
 # Getting Started
 To get started clone the repository and start container using
-### Starting in interactive container
-```bash
-docker-compose run deepstream
-```
 
 ### Using VS code
 In VS code go to ctrl + shift + P, then select Dev Containers: Open Folder in Container
+
+### Tutorials
+To get an example video run
+```bash
+get https://filesamples.com/samples/video/mp4/sample_640x360.mp4 -O assets/videos/sample.mp4
+```
 
 ## Git access inside the DeepStream dev container (SSH agent)
 
