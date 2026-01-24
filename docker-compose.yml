@@ -1,0 +1,15 @@
+services:
+  deepstream:
+    image: nvcr.io/nvidia/deepstream:8.0-gc-triton-devel
+    privileged: true
+    network_mode: host
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./:/workspace
+    working_dir: /workspace
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
