@@ -7,10 +7,12 @@ services:
     tty: true
     volumes:
       - ./:/workspace
-      - ~/.ssh:/root/.ssh:ro
+      - ${SSH_AUTH_SOCK}:/ssh-agent
     working_dir: /workspace
     deploy:
       resources:
         reservations:
           devices:
             - capabilities: [gpu]
+    environment:
+     - SSH_AUTH_SOCK=/ssh-agent
