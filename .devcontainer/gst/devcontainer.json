@@ -5,7 +5,8 @@
     "dockerfile": "Dockerfile.gst",
     "context": ".."
   },
-  "workspaceFolder": "/workspace",
+  "remoteUser": "you",
+  "containerUser": "you",
   "runArgs": [
     "--network=host",
     "--privileged",
@@ -19,9 +20,6 @@
     "DISPLAY": "${localEnv:DISPLAY}"
   },
   "remoteEnv": {
-    "SSH_AUTH_SOCK": "/ssh-agent"
-  },
-  "mounts": [
-    "source=${localWorkspaceFolder},target=/workspace,type=bind",
-  ]
+    "SSH_AUTH_SOCK": "${localEnv:SSH_AUTH_SOCK}"
+  }
 }

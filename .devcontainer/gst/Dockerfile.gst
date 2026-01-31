@@ -1,4 +1,5 @@
 FROM ubuntu:24.04
+
 RUN apt-get update && apt-get install -y \
     git \
     openssh-client \
@@ -20,3 +21,7 @@ RUN apt-get update && apt-get install -y \
 # Colored bash prompt
 RUN echo 'export PS1="\[\e[1;32m\]\u@\h \[\e[1;34m\]\w \[\e[0m\]\$ "' >> /root/.bashrc
 RUN echo 'export PS1="\[\e[1;32m\]\u@\h \[\e[1;34m\]\w \[\e[0m\]\$ "' >> /etc/bash.bashrc
+
+RUN usermod -l you ubuntu \
+ && groupmod -n you ubuntu \
+ && usermod -d /home/you -m you
