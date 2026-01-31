@@ -14,12 +14,10 @@
     "--env=DISPLAY=${env:DISPLAY}",
     "--volume=/tmp/.X11-unix:/tmp/.X11-unix:rw",
     "--volume=/mnt/wslg:/mnt/wslg:rw",
-    "--device=/dev/dri:/dev/dri"
+    "--device=/dev/dri:/dev/dri",
+    "--volume=${localEnv:HOME}/.ssh:/home/you/.ssh:rw"
   ],
   "containerEnv": {
     "DISPLAY": "${localEnv:DISPLAY}"
-  },
-  "remoteEnv": {
-    "SSH_AUTH_SOCK": "${localEnv:SSH_AUTH_SOCK}"
   }
 }
