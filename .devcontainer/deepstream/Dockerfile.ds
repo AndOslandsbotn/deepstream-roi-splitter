@@ -17,4 +17,5 @@ RUN apt-get update && apt-get install -y \
 RUN echo 'export PS1="\[\e[1;32m\]\u@\h \[\e[1;34m\]\w \[\e[0m\]\$ "' >> /root/.bashrc
 RUN echo 'export PS1="\[\e[1;32m\]\u@\h \[\e[1;34m\]\w \[\e[0m\]\$ "' >> /etc/bash.bashrc
 
-RUN git config --system core.editor "vim"
+RUN mkdir -p /home/triton-server && \
+    chown -R triton-server:triton-server /home/triton-server
