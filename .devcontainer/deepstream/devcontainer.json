@@ -1,7 +1,8 @@
 {
   "name": "DeepStream 8.0 Dev",
-  "image": "nvcr.io/nvidia/deepstream:8.0-triton-multiarch",
-
+  "build": {
+    "dockerfile": "Dockerfile.ds",
+  },
   "runArgs": [
     "--privileged",
     "--net=host",
@@ -10,7 +11,8 @@
     "-e", "CUDA_CACHE_DISABLE=0",
     "-e", "NVIDIA_DRIVER_CAPABILITIES=compute,utility,video,graphics",
     "--device", "/dev/snd",
-    "-v", "/tmp/.X11-unix:/tmp/.X11-unix"
+    "-v", "/tmp/.X11-unix:/tmp/.X11-unix",
+    "-v", "${localEnv:HOME}/.ssh:/home/you/.ssh:rw"
   ],
   "remoteUser": "root"
 }
