@@ -1,7 +1,7 @@
 {
   "name": "DeepStream 8.0 Dev",
   "build": {
-    "dockerfile": "Dockerfile.ds",
+    "dockerfile": "Dockerfile.ds.tutorial"
   },
   "runArgs": [
     "--privileged",
@@ -12,7 +12,10 @@
     "-e", "NVIDIA_DRIVER_CAPABILITIES=compute,utility,video,graphics",
     "--device", "/dev/snd",
     "-v", "/tmp/.X11-unix:/tmp/.X11-unix",
-    "-v", "${localEnv:HOME}/.ssh:/home/you/.ssh:rw"
   ],
-  "remoteUser": "root"
+    "mounts": [
+    "source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind,consistency=cached"
+  ],
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind"
 }
