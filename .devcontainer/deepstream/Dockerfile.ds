@@ -1,10 +1,23 @@
-FROM nvcr.io/nvidia/deepstream:8.0-gc-triton-devel
+FROM nvcr.io/nvidia/deepstream:8.0-triton-multiarch
 
-# Install minimal nice-to-have tools
-RUN apt-get update && apt-get install -y --no-install-recommends \
-  vim less \
-  && rm -rf /var/lib/apt/lists/*
+ENV DEBIAN_FRONTEND=noninteractive
 
-# Colored bash prompt
+RUN apt-get update && apt-get install -y \
+    sudo \    
+    git \
+    vim \
+    curl \
+    wget \
+    htop \
+    rsync \
+    bash-completion \
+    less \
+    && echo "triton-server ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
+    && rm -rf /var/lib/apt/lists/*
+
+ # Proper colored bash prompt everywhere
 RUN echo 'export PS1="\[\e[1;32m\]\u@\h \[\e[1;34m\]\w \[\e[0m\]\$ "' >> /root/.bashrc
 RUN echo 'export PS1="\[\e[1;32m\]\u@\h \[\e[1;34m\]\w \[\e[0m\]\$ "' >> /etc/bash.bashrc
+
+RUN mkdir -p /home/triton-server && \
+    chown -R triton-server:triton-server /home/triton-server
