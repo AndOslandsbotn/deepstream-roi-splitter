@@ -6,13 +6,12 @@ Navigate to:
 ```bash
 /opt/nvidia/deepstream/deepstream/samples/configs/de
 epstream-app $ 
-These files can be modified. E.g. change the sink2 so that it exposes rtsp stream. Turn of sink0 and 1.
 ```
 
-Then run
+These files can be modified. E.g. change the sink2 so that it exposes rtsp stream. Turn of sink0 and 1.
 
+Then from inside this folder run
 ```bash
-source30_1080p_dec_infer-resnet_tiled_display.txt
 deepstream-app -c source30_1080p_dec_infer-resnet_tiled_display.txt
 ```
 
